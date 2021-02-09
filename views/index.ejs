@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Pokedex</title>
+
+  <style>
+    body {
+      background-color: black;
+    }
+
+    h1 {
+      font-size: 500%;
+      color: gold;
+      font-family: "Audiowide", sans-serif;
+      font-stretch: expanded;
+    }
+    .container {
+      display: flex;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .grid {
+      border: thin solid gold;
+      width: 200px;
+      height: 200px;
+      text-align: center;
+      border-radius: 100px;
+      background-color: white;
+    }
+
+    img {
+      width: 90px;
+      height: 100px;
+    }
+
+    .button {
+      color: gold;
+      position: absolute;
+      top: 100px;
+      right: 200px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Pokedex</h1>
+
+  <a href="/new" class="button">Add New Pokemon</a>
+
+
+  <div class="container">
+    <% for(let i=0; i<data.length; i++) { %>
+      <div class="grid">
+        <p><a href="/<%=[i]%>">
+            <%= data[i].name %>
+          </a></p>
+        <img src="<%= data[i].img %>">
+        <br>
+        <a href="/<%=i%>/edit">Edit</a>
+        <form action="/<%=i%>?_method=DELETE" method="POST">
+          <input type="submit" value="DELETE" />
+        </form>
+      </div>
+      <% } %>
+  </div>
+</body>
+
+</html>

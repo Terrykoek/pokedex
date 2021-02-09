@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Edit</title>
+  <style>
+    input {
+        display: block;
+    }
+  </style>
+</head>
+<body>
+    <form action="/<%=id%>?_method=PUT" method="POST">
+      <label for="name">Name: </label>
+      <input type="text" id="name" name="name" value="<%=data.name%>">
+      <label for="img">Image URL: </label>
+      <input type="url" id="img" name="img" value="<%=data.img%>">
+      <!-- <label for="type">Type: </label>
+      <input type="text" id="type[]" name="type"> -->
+      <label for="hp">HP: </label>
+      <input type="number" id="hp" name="hp" value="<%=data.stats.hp%>">
+      <label for="attack">Attack: </label>
+      <input type="number" id="attack" name="attack" value="<%=data.stats.attack%>">
+      <label for="defense">Defense: </label>
+      <input type="number" id="defense" name="defense" value="<%=data.stats.defense%>">
+      <input type="submit" value="Confirm edit">
+  </form>
+</body>
+</html>
